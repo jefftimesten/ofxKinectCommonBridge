@@ -70,7 +70,9 @@ const ofVec3f SkeletonBone::getScreenPosition() {
 
 ofxKinectCommonBridge::ofxKinectCommonBridge(){
 	hKinect = NULL;
-
+	mapper = NULL;
+	nuiSensor = NULL;
+	
 	beginMappingColorToDepth = false;
 
 	bIsFrameNewVideo = false;
@@ -723,6 +725,8 @@ void ofxKinectCommonBridge::stop() {
 			nuiSensor->Release();
 			nuiSensor = nullptr;
 		}
+		
+		KinectStopStreams(hKinect);
 
 	}
 }	
